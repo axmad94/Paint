@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Axmad | Paint</title>
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<section class="drawing-board">
+			<canvas></canvas>
+		</section>
+		<section class="tools-board">
+			<div class="row">
+				<label for="" class="title">ShAKLLAR</label>
+				<ul class="options">
+					<li class="option tool" id="rectengle">
+						<img src="icons/rectangular-shape-outline.png" width="20" alt="rectengle">
+						<span>To'rtburchak</span>
+					</li>
+					<li class="option tool" id="circle">
+						<img src="icons/oval.png" width="20" alt="circle">
+						<span>Doira</span>
+					</li>
+					<li class="option tool" id="triangle">
+						<img src="icons/triangle.png" width="20" alt="triangle">
+						<span>Uchburchak</span>
+					</li>
+					<li class="option tool">
+						<input type="checkbox" id="fill-color">
+						<lebel for="fill-color">Rangni to'ldirish</lebel>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<label for="" class="title">VARIANTLAR</label>
+				<ul class="options">
+					<li class="option tool active" id="brush">
+						<img src="icons/brush.png" width="20" alt="brush">
+						<span>Qalam</span>
+					</li>
+					<li class="option tool " id="eraser">
+						<img src="icons/eraser.png" width="20" alt="eraser">
+						<span>O'chirg'ich</span>
+					</li>
+					<li class="option ">
+						<input type="range" id="size-slider" min="1" max="10" value="5">
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<label for="" class="title">Ranglar</label>
+				<div class="colors">
+					<ul class="options">
+						<li class="option"></li>
+						<li class="option selected"></li>
+						<li class="option"></li>
+						<li class="option"></li>
+						<li class="option">
+							<input type="color" id="color-picker" value="#4a98f7">
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row buttens">
+				<button class="crear-canvas">O'chirish</button>
+				<button class="seve-img">Saqlash</button>
+			</div>
+		</section>
+	</div>
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>
