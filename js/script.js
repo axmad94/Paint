@@ -124,8 +124,8 @@ colorBtns.forEach(btn => {
 })
 //SET COLOR FROM COLOR PICKER
 colorPicker.addEventListener('change', () => {
-colorPicker.parenElement.style.background = colorPicker.value
-colorPicker.parenElement.click()
+colorPicker.parentElement.style.background = colorPicker.value
+colorPicker.parentElement.click()
 })
 //STOP DRAWING
 const stopDrawing = () => {
