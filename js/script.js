@@ -5,6 +5,8 @@ fillColar = document.querySelector('#fill-color')
 sizeSlider = document.querySelector('#size-slider')
 colorBtns = document.querySelectorAll('.colors .option')
 colorPicker = document.querySelector('#color-picker')
+clearCanvasBtn = document.querySelector('.crear-canvas')
+seveImageBtn = document.querySelector('.seve-img')
 
 //VARIABLES WITH DEFAULT VALUE
 let ctx = canvas.getContext('2d', {
@@ -18,10 +20,18 @@ let ctx = canvas.getContext('2d', {
 	prevMouseY,
 	snapshot
 
+	// SET CANVAS BACKGROUD
+	const setCanvasBackground = () => {
+		ctx.fillStyle =  '#fff'
+		ctx.fillRect(0, 0, canvas.width, canvas.height)
+		ctx.fillStyle = selectedColor
+	}
 //SET CANVAS WIDTH AND HEIGHT
 window.addEventListener('load', () => {
 	canvas.width = canvas.offsetWidth
 	canvas.height = canvas.offsetHeight
+	 setCanvasBackground() 
+	
 })
 
 //START DRAWING
@@ -94,6 +104,12 @@ const drawing = e => {
 			case 'triangle':
 				drawTriangle(e)
 				break
+				case 'eraser':
+					ctx.strokeStyle = '#fff'
+					ctx.lineTo(e.offsetX, e.offsetY)
+			ctx.stroke()
+					
+				break
 		default:
 			break
 	}
@@ -106,7 +122,7 @@ toolBtens.forEach(btn => {
 		btn.classList.add('active')
 		selectedTool = btn.id
 
-		console.log(`selectedTool ${selectedTool}`)
+		
 	})
 })
 // CHANGE BRUSH WIDTH
@@ -127,6 +143,19 @@ colorPicker.addEventListener('change', () => {
 colorPicker.parentElement.style.background = colorPicker.value
 colorPicker.parentElement.click()
 })
+// CLEAR CANVAS BUTTON
+clearCanvasBtn.addEventListener('click', () => {
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
+	 setCanvasBackground() 
+})
+// SAVE LIKE IMAGE OUR PAINT
+seveImageBtn.addEventListener('click', () => {
+	const link = document.createElement('a')
+	link.download = `Axmad-panit${Date.now()}.jpg`
+	link.href = canvas.toDataURL()
+	link.click()
+})
+
 //STOP DRAWING
 const stopDrawing = () => {
 	isDrawing = false
